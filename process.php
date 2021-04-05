@@ -32,15 +32,16 @@ if(isset($_POST["register"])){
 
     if(!empty($_SESSION["errList"])){
         header("location: index.php");
+    }else{
+        $_SESSION["register"] = true;
+        $_SESSION["first_name"] = FILTER_VAR($_POST["first_name"],FILTER_SANITIZE_STRIPPED);
+        $_SESSION["last_name"] = FILTER_VAR($_POST["last_name"],FILTER_SANITIZE_STRIPPED);
+        $_SESSION["password"] = crypt($_POST["password1"],'$5$round=5000$somestringforSalt$');
+        $_SESSION["date"] = FILTER_VAR($_POST["date"],FILTER_SANITIZE_STRIPPED);
+        $_SESSION["email"] = FILTER_VAR($_POST["email"],FILTER_SANITIZE_EMAIL);
+        header("location: profile.php");
     }
 
-    $_SESSION["register"] = true;
-    $_SESSION["first_name"] = FILTER_VAR($_POST["first_name"],FILTER_SANITIZE_STRIPPED);
-    $_SESSION["last_name"] = FILTER_VAR($_POST["last_name"],FILTER_SANITIZE_STRIPPED);
-    $_SESSION["password"] = crypt($_POST["password1"],'$5$round=5000$somestringforSalt$');
-    $_SESSION["date"] = FILTER_VAR($_POST["date"],FILTER_SANITIZE_STRIPPED);
-    $_SESSION["email"] = FILTER_VAR($_POST["email"],FILTER_SANITIZE_EMAIL);
-    header("location: profile.php");
 }
 else{
     header("location: index.php");
