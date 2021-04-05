@@ -26,7 +26,7 @@ if(isset($_POST["register"])){
         $_SESSION["errList"][] = "<p class='err_styled'>Password should be similar</p>";
     }//password
 
-    if(!isset($_POST["date"]) && !checkdate($is_valid_date[1],$is_valid_date["2"],$is_valid_date[0]) ){
+    if(isset($_POST["date"]) && !checkdate($is_valid_date[1],$is_valid_date["2"],$is_valid_date[0]) ){
         $_SESSION["errList"][] = "<p class='err_styled'>Invalid Date</p>";
     }//date
 
