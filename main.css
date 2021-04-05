@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    font-size: 1.8rem;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+    form,.errorlist{
+        width: 50rem;
+        margin: 10rem auto;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+
+    }
+    form{
+        box-shadow: .1em .1em .5em #000;
+        gap: 2rem;
+    }
+        form input:not(input[type="password"]){
+            padding: .2em;
+        }
+        form >*{
+            padding: .2em;
+        }
+
+        form > input{
+            border: .1rem solid grey;
+            border-radius: .2em;
+        }
+
+/*utils*/
+.err_styled{
+    color: #ff4545;
+
+}
